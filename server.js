@@ -21,17 +21,23 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
+app.get('/api/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, '/db/db.json'));
+}) 
+
 //Takes in the notes and saves to db.json.
 app.post('/api/notes', (req, res) => {
   fs.readFile(path.join(__dirname, '/db/db.json'), (error, response) => {
-    if (error) throw (error);
+    if (error) {
+      console.log(error);
+    }
     let notes = JSON.parse(response);
     let noteReq = req.body;
     let newNoteId = notes.length + 1;
     let newNote = {
       id: newNoteId,
       title: noteReq.title,
-      text: noteReq.text,
+      text: noteReq.text
     };
     notes.push(newNote);
     res.json(newNote);
