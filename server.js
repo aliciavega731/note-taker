@@ -52,9 +52,10 @@ app.delete("/api/notes/:noteId", (req, res) => {
     let myArray = JSON.parse(response)
     let newArray = myArray.filter (note => note.id != req.params.noteId)
     console.log(newArray)
-    fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(newArray), (err) => {
+    fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(newArray, null, 2), (err) => {
       if (err) throw (err);
     })
+    return res.json(response)
   })
 })
 
