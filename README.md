@@ -14,13 +14,13 @@ Developers must clone the repository using their terminal/bash. They must also i
 
 The application is best used with nodemon.
 
-### Deployed applicatio
+### Deployed application
 
-evening-thicket-45514.herokuapp.com/
+https://evening-thicket-45514.herokuapp.com/
 
 ### Github Repository
 
-github.com/aliciavega731/team-profile-generator
+https://github.com/aliciavega731/note-taker
 
 ![Application](./media/Note-Taker.gif)
 
