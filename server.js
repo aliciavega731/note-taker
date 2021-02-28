@@ -49,10 +49,10 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:noteId", (req, res) => {
   fs.readFile(path.join(__dirname, "/db/db.json"), (err, response) => {
     if (err) throw (err);
-    let myArray = JSON.parse(data)
-    let newArray = myArray.filter (note => note.id !== req.params.noteId)
+    let myArray = JSON.parse(response)
+    let newArray = myArray.filter (note => note.id != req.params.noteId)
     console.log(newArray)
-    fs.writeFile(path.join(__dirname, "/db/db.json"), newArray, (err) => {
+    fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(newArray), (err) => {
       if (err) throw (err);
     })
   })
